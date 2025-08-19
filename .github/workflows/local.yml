@@ -19,7 +19,7 @@ jobs:
 
       - name: Install ATL
         run: |
-          vs_BuildTools.exe --add Microsoft.VisualStudio.Component.VC.ATL --includeRecommended --quiet --norestart --wait
+          .\vs_BuildTools.exe --add Microsoft.VisualStudio.Component.VC.ATL --includeRecommended --quiet --norestart --wait
 
       - name: Check MSVC DIR
         run: |
