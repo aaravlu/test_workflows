@@ -15,7 +15,7 @@ jobs:
       - name: Checkout WinSDK
         shell: cmd
         run: |
-          setx WindowsSDKVersion "10.0.19041.0"
+          setx WindowsSDKVersion 10.0.19041.0
 
       - name: Check MSVC
         shell: cmd
