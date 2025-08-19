@@ -10,8 +10,8 @@ jobs:
         uses: ilammy/msvc-dev-cmd@v1
         with:
           arch: x64
-          msvc-version: 14.29
-          windows-sdk-version: 10.0.19041.0
+          toolset: 14.29
+          sdk: 10.0.19041.0
 
       - name: Check MSVC
         shell: cmd
