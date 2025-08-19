@@ -12,19 +12,29 @@ jobs:
           arch: x64
           toolset: 14.29
           sdk: 10.0.19041.0
+
+      - name: Download VS Installer 2019
+        run: |
+          Invoke-WebRequest -Uri "https://aka.ms/vs/16/release/vs_BuildTools.exe" -OutFile "vs_BuildTools.exe"
+
+      - name: Install ATL
+        run: |
+          vs_BuildTools.exe --add Microsoft.VisualStudio.Component.VC.ATL --includeRecommended --quiet --norestart --wait
+
       - name: Check MSVC DIR
         run: |
           ls "C:\Program Files\Microsoft Visual Studio"
           ls "C:\Program Files\Microsoft Visual Studio\2022"
-      # - name: Check ATL installation
-      #   run: |
-      #     $atlPath = "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.29.30133\atlmfc\include\atlbase.h"
-      #     if (Get-ChildItem $atlPath) {
-      #         Write-Host "✅ ATL is installed."
-      #     } else {
-      #         Write-Error "❌ ATL is NOT installed!"
-      #         exit 1
-      #     }
+
+      - name: Check ATL installation
+        run: |
+          $atlPath = "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.29.30133\atlmfc\include\atlbase.h"
+          if (Get-ChildItem $atlPath) {
+              Write-Host "✅ ATL is installed."
+          } else {
+              Write-Error "❌ ATL is NOT installed!"
+              exit 1
+          }
 
       - name: Check MSVC
         shell: cmd
