@@ -1,0 +1,24 @@
+name: TEST
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+          toolset: 14.29
+
+      - name: Check MSVC
+        shell: cmd
+        run: |
+          "where cl && where link"
+
+      # - name: Archive Binary
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: rufus
+      #     path: rufus/x64/Release/rufus.exe
