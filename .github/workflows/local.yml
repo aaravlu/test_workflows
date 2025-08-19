@@ -18,8 +18,9 @@ jobs:
           Invoke-WebRequest -Uri "https://aka.ms/vs/16/release/vs_BuildTools.exe" -OutFile "vs_BuildTools.exe"
 
       - name: Install ATL
+        shell: cmd
         run: |
-          .\vs_BuildTools.exe modify --installPath "C:\Program Files\Microsoft Visual Studio\2022\Enterprise" --add Microsoft.VisualStudio.Component.VC.ATL --quiet --norestart --nocache
+          "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vs_installer.exe" modify --installPath "C:\Program Files\Microsoft Visual Studio\2022\Enterprise" --add Microsoft.VisualStudio.Component.VC.ATL --quiet --norestart --nocache
 
       - name: Check ATL installation
         run: |
