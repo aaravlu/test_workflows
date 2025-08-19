@@ -3,7 +3,7 @@ name: TEST
 on: workflow_dispatch
 
 jobs:
-  build:
+  test:
     runs-on: windows-2022
     steps:
       - name: Setup MSVC
@@ -11,6 +11,11 @@ jobs:
         with:
           arch: x64
           toolset: 14.29
+
+      - name: Checkout WinSDK
+        shell: cmd
+        run: |
+          setx WindowsSDKVersion=10.0.19041.0
 
       - name: Check MSVC
         shell: cmd
