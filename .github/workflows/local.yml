@@ -12,10 +12,9 @@ jobs:
           arch: x64
           toolset: 14.29
 
-      - name: Checkout WinSDK
-        shell: cmd
+      - name: Check WinSDK
         run: |
-          setx WindowsSDKVersion 10.0.19041.0
+          ls "C:\Program Files (x86)\Windows Kits\10"
 
       - name: Check MSVC
         shell: cmd
