@@ -15,7 +15,7 @@ jobs:
       - name: Check MSVC
         shell: cmd
         run: |
-          where cl && where link
+          where cl && where link && where rc
 
       # - name: Archive Binary
       #   uses: actions/upload-artifact@v4
