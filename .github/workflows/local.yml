@@ -10,11 +10,8 @@ jobs:
         uses: ilammy/msvc-dev-cmd@v1
         with:
           arch: x64
-          toolset: 14.29
-
-      - name: Check WinSDK
-        run: |
-          ls "C:\Program Files (x86)\Windows Kits\10\bin"
+          msvc-version: 14.29
+          windows-sdk-version: 10.0.19041.0
 
       - name: Check MSVC
         shell: cmd
